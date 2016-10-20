@@ -1,7 +1,7 @@
-create database PBD_20161_Trabalho_Um_Com_Indice
+create database TCC
 GO
 
-use PBD_20161_Trabalho_Um_Com_Indice 
+use TCC 
 
 CREATE TABLE [dbo].[CUSTOMER](
 	[C_CUSTKEY] [int] NOT NULL,
@@ -147,22 +147,5 @@ GO
 ALTER TABLE [dbo].[SUPPLIER]  WITH CHECK ADD FOREIGN KEY([S_NATIONKEY])
 REFERENCES [dbo].[NATION] ([N_NATIONKEY])
 GO
-
-
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.part FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\part.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.customer FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\customer.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.orders FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\orders1.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.orders FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\orders2.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.partsupp FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\partsupp.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.supplier FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\supplier.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.nation FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\nation.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.region FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\region.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.lineitem FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\lineitem_1.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.lineitem FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\lineitem_2.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.lineitem FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\lineitem_3.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.lineitem FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\lineitem_4.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.lineitem FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\lineitem_5.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-BULK INSERT PBD_20161_Trabalho_Um_Com_Indice.dbo.lineitem FROM 'C:\Users\Win\Desktop\Trabalho 1 PBD\Tables\lineitem_6.csv' WITH (TABLOCK, DATAFILETYPE='char', CODEPAGE='raw', FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-
 
 
