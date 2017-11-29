@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexManager", "IndexManager\IndexManager.csproj", "{408724D9-4895-4BB8-8D4B-4F8B8290248F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPCH", "TPCH\TPCH.csproj", "{081F699D-6174-4A9E-8C8A-826EDF759E4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{408724D9-4895-4BB8-8D4B-4F8B8290248F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{408724D9-4895-4BB8-8D4B-4F8B8290248F}.Release|x86.ActiveCfg = Release|Any CPU
 		{408724D9-4895-4BB8-8D4B-4F8B8290248F}.Release|x86.Build.0 = Release|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Debug|x86.Build.0 = Debug|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Release|x86.ActiveCfg = Release|Any CPU
+		{081F699D-6174-4A9E-8C8A-826EDF759E4A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

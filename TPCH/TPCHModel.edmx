@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TPCHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="C_CUSTKEY" />
+          </Key>
+          <Property Name="C_CUSTKEY" Type="int" Nullable="false" />
+          <Property Name="C_NAME" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="C_ADDRESS" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="C_NATIONKEY" Type="int" Nullable="false" />
+          <Property Name="C_PHONE" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="C_ACCTBAL" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="C_MKTSEGMENT" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="C_COMMENT" Type="varchar" MaxLength="117" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TPCH.dbo.LINEITEM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LINEITEM">
+          <Key>
+            <PropertyRef Name="L_ORDERKEY" />
+            <PropertyRef Name="L_PARTKEY" />
+            <PropertyRef Name="L_SUPPKEY" />
+            <PropertyRef Name="L_LINENUMBER" />
+            <PropertyRef Name="L_QUANTITY" />
+            <PropertyRef Name="L_EXTENDEDPRICE" />
+            <PropertyRef Name="L_DISCOUNT" />
+            <PropertyRef Name="L_TAX" />
+            <PropertyRef Name="L_RETURNFLAG" />
+            <PropertyRef Name="L_LINESTATUS" />
+            <PropertyRef Name="L_SHIPDATE" />
+            <PropertyRef Name="L_COMMITDATE" />
+            <PropertyRef Name="L_RECEIPTDATE" />
+            <PropertyRef Name="L_SHIPINSTRUCT" />
+            <PropertyRef Name="L_SHIPMODE" />
+            <PropertyRef Name="L_COMMENT" />
+          </Key>
+          <Property Name="L_ORDERKEY" Type="int" Nullable="false" />
+          <Property Name="L_PARTKEY" Type="int" Nullable="false" />
+          <Property Name="L_SUPPKEY" Type="int" Nullable="false" />
+          <Property Name="L_LINENUMBER" Type="int" Nullable="false" />
+          <Property Name="L_QUANTITY" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_EXTENDEDPRICE" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_DISCOUNT" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_TAX" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_RETURNFLAG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="L_LINESTATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="L_SHIPDATE" Type="date" Nullable="false" />
+          <Property Name="L_COMMITDATE" Type="date" Nullable="false" />
+          <Property Name="L_RECEIPTDATE" Type="date" Nullable="false" />
+          <Property Name="L_SHIPINSTRUCT" Type="char" MaxLength="25" Nullable="false" />
+          <Property Name="L_SHIPMODE" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="L_COMMENT" Type="varchar" MaxLength="44" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NATION">
+          <Key>
+            <PropertyRef Name="N_NATIONKEY" />
+          </Key>
+          <Property Name="N_NATIONKEY" Type="int" Nullable="false" />
+          <Property Name="N_NAME" Type="char" MaxLength="25" Nullable="false" />
+          <Property Name="N_REGIONKEY" Type="int" Nullable="false" />
+          <Property Name="N_COMMENT" Type="varchar" MaxLength="152" />
+        </EntityType>
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="O_ORDERKEY" />
+          </Key>
+          <Property Name="O_ORDERKEY" Type="int" Nullable="false" />
+          <Property Name="O_CUSTKEY" Type="int" Nullable="false" />
+          <Property Name="O_ORDERSTATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="O_TOTALPRICE" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="O_ORDERDATE" Type="date" Nullable="false" />
+          <Property Name="O_ORDERPRIORITY" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="O_CLERK" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="O_SHIPPRIORITY" Type="int" Nullable="false" />
+          <Property Name="O_COMMENT" Type="varchar" MaxLength="79" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PART">
+          <Key>
+            <PropertyRef Name="P_PARTKEY" />
+          </Key>
+          <Property Name="P_PARTKEY" Type="int" Nullable="false" />
+          <Property Name="P_NAME" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="P_MFGR" Type="char" MaxLength="25" Nullable="false" />
+          <Property Name="P_BRAND" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="P_TYPE" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="P_SIZE" Type="int" Nullable="false" />
+          <Property Name="P_CONTAINER" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="P_RETAILPRICE" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="P_COMMENT" Type="varchar" MaxLength="23" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARTSUPP">
+          <Key>
+            <PropertyRef Name="PS_PARTKEY" />
+            <PropertyRef Name="PS_SUPPKEY" />
+          </Key>
+          <Property Name="PS_PARTKEY" Type="int" Nullable="false" />
+          <Property Name="PS_SUPPKEY" Type="int" Nullable="false" />
+          <Property Name="PS_AVAILQTY" Type="int" Nullable="false" />
+          <Property Name="PS_SUPPLYCOST" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="PS_COMMENT" Type="varchar" MaxLength="199" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="R_REGIONKEY" />
+          </Key>
+          <Property Name="R_REGIONKEY" Type="int" Nullable="false" />
+          <Property Name="R_NAME" Type="char" MaxLength="25" Nullable="false" />
+          <Property Name="R_COMMENT" Type="varchar" MaxLength="152" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="S_SUPPKEY" />
+          </Key>
+          <Property Name="S_SUPPKEY" Type="int" Nullable="false" />
+          <Property Name="S_NAME" Type="char" MaxLength="25" Nullable="false" />
+          <Property Name="S_ADDRESS" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="S_NATIONKEY" Type="int" Nullable="false" />
+          <Property Name="S_PHONE" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="S_ACCTBAL" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="S_COMMENT" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CUSTOMER__C_NATI__1DE57479">
+          <End Role="NATION" Type="Self.NATION" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NATION">
+              <PropertyRef Name="N_NATIONKEY" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="C_NATIONKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NATION__N_REGION__20C1E124">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="NATION" Type="Self.NATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="R_REGIONKEY" />
+            </Principal>
+            <Dependent Role="NATION">
+              <PropertyRef Name="N_REGIONKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDERS__O_CUSTKE__21B6055D">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="C_CUSTKEY" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="O_CUSTKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTSUPP__PS_PAR__22AA2996">
+          <End Role="PART" Type="Self.PART" Multiplicity="1" />
+          <End Role="PARTSUPP" Type="Self.PARTSUPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PART">
+              <PropertyRef Name="P_PARTKEY" />
+            </Principal>
+            <Dependent Role="PARTSUPP">
+              <PropertyRef Name="PS_PARTKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTSUPP__PS_SUP__239E4DCF">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="PARTSUPP" Type="Self.PARTSUPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="S_SUPPKEY" />
+            </Principal>
+            <Dependent Role="PARTSUPP">
+              <PropertyRef Name="PS_SUPPKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__S_NATI__24927208">
+          <End Role="NATION" Type="Self.NATION" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NATION">
+              <PropertyRef Name="N_NATIONKEY" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="S_NATIONKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TPCHModelStoreContainer">
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NATION" EntityType="Self.NATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PART" EntityType="Self.PART" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARTSUPP" EntityType="Self.PARTSUPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIER" EntityType="Self.SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LINEITEM" EntityType="Self.LINEITEM" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LINEITEM].[L_ORDERKEY] AS [L_ORDERKEY], 
+    [LINEITEM].[L_PARTKEY] AS [L_PARTKEY], 
+    [LINEITEM].[L_SUPPKEY] AS [L_SUPPKEY], 
+    [LINEITEM].[L_LINENUMBER] AS [L_LINENUMBER], 
+    [LINEITEM].[L_QUANTITY] AS [L_QUANTITY], 
+    [LINEITEM].[L_EXTENDEDPRICE] AS [L_EXTENDEDPRICE], 
+    [LINEITEM].[L_DISCOUNT] AS [L_DISCOUNT], 
+    [LINEITEM].[L_TAX] AS [L_TAX], 
+    [LINEITEM].[L_RETURNFLAG] AS [L_RETURNFLAG], 
+    [LINEITEM].[L_LINESTATUS] AS [L_LINESTATUS], 
+    [LINEITEM].[L_SHIPDATE] AS [L_SHIPDATE], 
+    [LINEITEM].[L_COMMITDATE] AS [L_COMMITDATE], 
+    [LINEITEM].[L_RECEIPTDATE] AS [L_RECEIPTDATE], 
+    [LINEITEM].[L_SHIPINSTRUCT] AS [L_SHIPINSTRUCT], 
+    [LINEITEM].[L_SHIPMODE] AS [L_SHIPMODE], 
+    [LINEITEM].[L_COMMENT] AS [L_COMMENT]
+    FROM [dbo].[LINEITEM] AS [LINEITEM]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CUSTOMER__C_NATI__1DE57479" Association="Self.FK__CUSTOMER__C_NATI__1DE57479">
+            <End Role="NATION" EntitySet="NATION" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NATION__N_REGION__20C1E124" Association="Self.FK__NATION__N_REGION__20C1E124">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="NATION" EntitySet="NATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDERS__O_CUSTKE__21B6055D" Association="Self.FK__ORDERS__O_CUSTKE__21B6055D">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTSUPP__PS_PAR__22AA2996" Association="Self.FK__PARTSUPP__PS_PAR__22AA2996">
+            <End Role="PART" EntitySet="PART" />
+            <End Role="PARTSUPP" EntitySet="PARTSUPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTSUPP__PS_SUP__239E4DCF" Association="Self.FK__PARTSUPP__PS_SUP__239E4DCF">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="PARTSUPP" EntitySet="PARTSUPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__S_NATI__24927208" Association="Self.FK__SUPPLIER__S_NATI__24927208">
+            <End Role="NATION" EntitySet="NATION" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TPCHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="C_CUSTKEY" />
+          </Key>
+          <Property Name="C_CUSTKEY" Type="Int32" Nullable="false" />
+          <Property Name="C_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_ADDRESS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_NATIONKEY" Type="Int32" Nullable="false" />
+          <Property Name="C_PHONE" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="C_ACCTBAL" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="C_MKTSEGMENT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="C_COMMENT" Type="String" MaxLength="117" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="NATION" Relationship="Self.FK__CUSTOMER__C_NATI__1DE57479" FromRole="CUSTOMER" ToRole="NATION" />
+          <NavigationProperty Name="ORDERS" Relationship="Self.FK__ORDERS__O_CUSTKE__21B6055D" FromRole="CUSTOMER" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="NATION">
+          <Key>
+            <PropertyRef Name="N_NATIONKEY" />
+          </Key>
+          <Property Name="N_NATIONKEY" Type="Int32" Nullable="false" />
+          <Property Name="N_NAME" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="N_REGIONKEY" Type="Int32" Nullable="false" />
+          <Property Name="N_COMMENT" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK__CUSTOMER__C_NATI__1DE57479" FromRole="NATION" ToRole="CUSTOMER" />
+          <NavigationProperty Name="REGION" Relationship="Self.FK__NATION__N_REGION__20C1E124" FromRole="NATION" ToRole="REGION" />
+          <NavigationProperty Name="SUPPLIERs" Relationship="Self.FK__SUPPLIER__S_NATI__24927208" FromRole="NATION" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="O_ORDERKEY" />
+          </Key>
+          <Property Name="O_ORDERKEY" Type="Int32" Nullable="false" />
+          <Property Name="O_CUSTKEY" Type="Int32" Nullable="false" />
+          <Property Name="O_ORDERSTATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="O_TOTALPRICE" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="O_ORDERDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="O_ORDERPRIORITY" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="O_CLERK" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="O_SHIPPRIORITY" Type="Int32" Nullable="false" />
+          <Property Name="O_COMMENT" Type="String" MaxLength="79" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__ORDERS__O_CUSTKE__21B6055D" FromRole="ORDERS" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="PART">
+          <Key>
+            <PropertyRef Name="P_PARTKEY" />
+          </Key>
+          <Property Name="P_PARTKEY" Type="Int32" Nullable="false" />
+          <Property Name="P_NAME" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="P_MFGR" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="P_BRAND" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="P_TYPE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="P_SIZE" Type="Int32" Nullable="false" />
+          <Property Name="P_CONTAINER" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="P_RETAILPRICE" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="P_COMMENT" Type="String" MaxLength="23" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PARTSUPPs" Relationship="Self.FK__PARTSUPP__PS_PAR__22AA2996" FromRole="PART" ToRole="PARTSUPP" />
+        </EntityType>
+        <EntityType Name="PARTSUPP">
+          <Key>
+            <PropertyRef Name="PS_PARTKEY" />
+            <PropertyRef Name="PS_SUPPKEY" />
+          </Key>
+          <Property Name="PS_PARTKEY" Type="Int32" Nullable="false" />
+          <Property Name="PS_SUPPKEY" Type="Int32" Nullable="false" />
+          <Property Name="PS_AVAILQTY" Type="Int32" Nullable="false" />
+          <Property Name="PS_SUPPLYCOST" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="PS_COMMENT" Type="String" MaxLength="199" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PART" Relationship="Self.FK__PARTSUPP__PS_PAR__22AA2996" FromRole="PARTSUPP" ToRole="PART" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__PARTSUPP__PS_SUP__239E4DCF" FromRole="PARTSUPP" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="R_REGIONKEY" />
+          </Key>
+          <Property Name="R_REGIONKEY" Type="Int32" Nullable="false" />
+          <Property Name="R_NAME" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="R_COMMENT" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NATIONs" Relationship="Self.FK__NATION__N_REGION__20C1E124" FromRole="REGION" ToRole="NATION" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="S_SUPPKEY" />
+          </Key>
+          <Property Name="S_SUPPKEY" Type="Int32" Nullable="false" />
+          <Property Name="S_NAME" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="S_ADDRESS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="S_NATIONKEY" Type="Int32" Nullable="false" />
+          <Property Name="S_PHONE" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="S_ACCTBAL" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="S_COMMENT" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="NATION" Relationship="Self.FK__SUPPLIER__S_NATI__24927208" FromRole="SUPPLIER" ToRole="NATION" />
+          <NavigationProperty Name="PARTSUPPs" Relationship="Self.FK__PARTSUPP__PS_SUP__239E4DCF" FromRole="SUPPLIER" ToRole="PARTSUPP" />
+        </EntityType>
+        <EntityType Name="LINEITEM">
+          <Key>
+            <PropertyRef Name="L_ORDERKEY" />
+            <PropertyRef Name="L_PARTKEY" />
+            <PropertyRef Name="L_SUPPKEY" />
+            <PropertyRef Name="L_LINENUMBER" />
+            <PropertyRef Name="L_QUANTITY" />
+            <PropertyRef Name="L_EXTENDEDPRICE" />
+            <PropertyRef Name="L_DISCOUNT" />
+            <PropertyRef Name="L_TAX" />
+            <PropertyRef Name="L_RETURNFLAG" />
+            <PropertyRef Name="L_LINESTATUS" />
+            <PropertyRef Name="L_SHIPDATE" />
+            <PropertyRef Name="L_COMMITDATE" />
+            <PropertyRef Name="L_RECEIPTDATE" />
+            <PropertyRef Name="L_SHIPINSTRUCT" />
+            <PropertyRef Name="L_SHIPMODE" />
+            <PropertyRef Name="L_COMMENT" />
+          </Key>
+          <Property Name="L_ORDERKEY" Type="Int32" Nullable="false" />
+          <Property Name="L_PARTKEY" Type="Int32" Nullable="false" />
+          <Property Name="L_SUPPKEY" Type="Int32" Nullable="false" />
+          <Property Name="L_LINENUMBER" Type="Int32" Nullable="false" />
+          <Property Name="L_QUANTITY" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_EXTENDEDPRICE" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_DISCOUNT" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_TAX" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="L_RETURNFLAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="L_LINESTATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="L_SHIPDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="L_COMMITDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="L_RECEIPTDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="L_SHIPINSTRUCT" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="L_SHIPMODE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="L_COMMENT" Type="String" MaxLength="44" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CUSTOMER__C_NATI__1DE57479">
+          <End Role="NATION" Type="Self.NATION" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NATION">
+              <PropertyRef Name="N_NATIONKEY" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="C_NATIONKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDERS__O_CUSTKE__21B6055D">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="ORDERS" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="C_CUSTKEY" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="O_CUSTKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NATION__N_REGION__20C1E124">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="NATION" Type="Self.NATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="R_REGIONKEY" />
+            </Principal>
+            <Dependent Role="NATION">
+              <PropertyRef Name="N_REGIONKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__S_NATI__24927208">
+          <End Role="NATION" Type="Self.NATION" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NATION">
+              <PropertyRef Name="N_NATIONKEY" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="S_NATIONKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTSUPP__PS_PAR__22AA2996">
+          <End Role="PART" Type="Self.PART" Multiplicity="1" />
+          <End Role="PARTSUPP" Type="Self.PARTSUPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PART">
+              <PropertyRef Name="P_PARTKEY" />
+            </Principal>
+            <Dependent Role="PARTSUPP">
+              <PropertyRef Name="PS_PARTKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTSUPP__PS_SUP__239E4DCF">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="PARTSUPP" Type="Self.PARTSUPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="S_SUPPKEY" />
+            </Principal>
+            <Dependent Role="PARTSUPP">
+              <PropertyRef Name="PS_SUPPKEY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TPCHDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="NATIONs" EntityType="Self.NATION" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDER" />
+          <EntitySet Name="PARTs" EntityType="Self.PART" />
+          <EntitySet Name="PARTSUPPs" EntityType="Self.PARTSUPP" />
+          <EntitySet Name="REGIONs" EntityType="Self.REGION" />
+          <EntitySet Name="SUPPLIERs" EntityType="Self.SUPPLIER" />
+          <EntitySet Name="LINEITEMs" EntityType="Self.LINEITEM" />
+          <AssociationSet Name="FK__CUSTOMER__C_NATI__1DE57479" Association="Self.FK__CUSTOMER__C_NATI__1DE57479">
+            <End Role="NATION" EntitySet="NATIONs" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDERS__O_CUSTKE__21B6055D" Association="Self.FK__ORDERS__O_CUSTKE__21B6055D">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NATION__N_REGION__20C1E124" Association="Self.FK__NATION__N_REGION__20C1E124">
+            <End Role="REGION" EntitySet="REGIONs" />
+            <End Role="NATION" EntitySet="NATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__S_NATI__24927208" Association="Self.FK__SUPPLIER__S_NATI__24927208">
+            <End Role="NATION" EntitySet="NATIONs" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTSUPP__PS_PAR__22AA2996" Association="Self.FK__PARTSUPP__PS_PAR__22AA2996">
+            <End Role="PART" EntitySet="PARTs" />
+            <End Role="PARTSUPP" EntitySet="PARTSUPPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTSUPP__PS_SUP__239E4DCF" Association="Self.FK__PARTSUPP__PS_SUP__239E4DCF">
+            <End Role="SUPPLIER" EntitySet="SUPPLIERs" />
+            <End Role="PARTSUPP" EntitySet="PARTSUPPs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TPCHModelStoreContainer" CdmEntityContainer="TPCHDBContext">
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="TPCHModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="C_CUSTKEY" ColumnName="C_CUSTKEY" />
+                <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+                <ScalarProperty Name="C_ADDRESS" ColumnName="C_ADDRESS" />
+                <ScalarProperty Name="C_NATIONKEY" ColumnName="C_NATIONKEY" />
+                <ScalarProperty Name="C_PHONE" ColumnName="C_PHONE" />
+                <ScalarProperty Name="C_ACCTBAL" ColumnName="C_ACCTBAL" />
+                <ScalarProperty Name="C_MKTSEGMENT" ColumnName="C_MKTSEGMENT" />
+                <ScalarProperty Name="C_COMMENT" ColumnName="C_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NATIONs">
+            <EntityTypeMapping TypeName="TPCHModel.NATION">
+              <MappingFragment StoreEntitySet="NATION">
+                <ScalarProperty Name="N_NATIONKEY" ColumnName="N_NATIONKEY" />
+                <ScalarProperty Name="N_NAME" ColumnName="N_NAME" />
+                <ScalarProperty Name="N_REGIONKEY" ColumnName="N_REGIONKEY" />
+                <ScalarProperty Name="N_COMMENT" ColumnName="N_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERS">
+            <EntityTypeMapping TypeName="TPCHModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDERS">
+                <ScalarProperty Name="O_ORDERKEY" ColumnName="O_ORDERKEY" />
+                <ScalarProperty Name="O_CUSTKEY" ColumnName="O_CUSTKEY" />
+                <ScalarProperty Name="O_ORDERSTATUS" ColumnName="O_ORDERSTATUS" />
+                <ScalarProperty Name="O_TOTALPRICE" ColumnName="O_TOTALPRICE" />
+                <ScalarProperty Name="O_ORDERDATE" ColumnName="O_ORDERDATE" />
+                <ScalarProperty Name="O_ORDERPRIORITY" ColumnName="O_ORDERPRIORITY" />
+                <ScalarProperty Name="O_CLERK" ColumnName="O_CLERK" />
+                <ScalarProperty Name="O_SHIPPRIORITY" ColumnName="O_SHIPPRIORITY" />
+                <ScalarProperty Name="O_COMMENT" ColumnName="O_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARTs">
+            <EntityTypeMapping TypeName="TPCHModel.PART">
+              <MappingFragment StoreEntitySet="PART">
+                <ScalarProperty Name="P_PARTKEY" ColumnName="P_PARTKEY" />
+                <ScalarProperty Name="P_NAME" ColumnName="P_NAME" />
+                <ScalarProperty Name="P_MFGR" ColumnName="P_MFGR" />
+                <ScalarProperty Name="P_BRAND" ColumnName="P_BRAND" />
+                <ScalarProperty Name="P_TYPE" ColumnName="P_TYPE" />
+                <ScalarProperty Name="P_SIZE" ColumnName="P_SIZE" />
+                <ScalarProperty Name="P_CONTAINER" ColumnName="P_CONTAINER" />
+                <ScalarProperty Name="P_RETAILPRICE" ColumnName="P_RETAILPRICE" />
+                <ScalarProperty Name="P_COMMENT" ColumnName="P_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARTSUPPs">
+            <EntityTypeMapping TypeName="TPCHModel.PARTSUPP">
+              <MappingFragment StoreEntitySet="PARTSUPP">
+                <ScalarProperty Name="PS_PARTKEY" ColumnName="PS_PARTKEY" />
+                <ScalarProperty Name="PS_SUPPKEY" ColumnName="PS_SUPPKEY" />
+                <ScalarProperty Name="PS_AVAILQTY" ColumnName="PS_AVAILQTY" />
+                <ScalarProperty Name="PS_SUPPLYCOST" ColumnName="PS_SUPPLYCOST" />
+                <ScalarProperty Name="PS_COMMENT" ColumnName="PS_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGIONs">
+            <EntityTypeMapping TypeName="TPCHModel.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="R_REGIONKEY" ColumnName="R_REGIONKEY" />
+                <ScalarProperty Name="R_NAME" ColumnName="R_NAME" />
+                <ScalarProperty Name="R_COMMENT" ColumnName="R_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIERs">
+            <EntityTypeMapping TypeName="TPCHModel.SUPPLIER">
+              <MappingFragment StoreEntitySet="SUPPLIER">
+                <ScalarProperty Name="S_SUPPKEY" ColumnName="S_SUPPKEY" />
+                <ScalarProperty Name="S_NAME" ColumnName="S_NAME" />
+                <ScalarProperty Name="S_ADDRESS" ColumnName="S_ADDRESS" />
+                <ScalarProperty Name="S_NATIONKEY" ColumnName="S_NATIONKEY" />
+                <ScalarProperty Name="S_PHONE" ColumnName="S_PHONE" />
+                <ScalarProperty Name="S_ACCTBAL" ColumnName="S_ACCTBAL" />
+                <ScalarProperty Name="S_COMMENT" ColumnName="S_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LINEITEMs">
+            <EntityTypeMapping TypeName="TPCHModel.LINEITEM">
+              <MappingFragment StoreEntitySet="LINEITEM">
+                <ScalarProperty Name="L_ORDERKEY" ColumnName="L_ORDERKEY" />
+                <ScalarProperty Name="L_PARTKEY" ColumnName="L_PARTKEY" />
+                <ScalarProperty Name="L_SUPPKEY" ColumnName="L_SUPPKEY" />
+                <ScalarProperty Name="L_LINENUMBER" ColumnName="L_LINENUMBER" />
+                <ScalarProperty Name="L_QUANTITY" ColumnName="L_QUANTITY" />
+                <ScalarProperty Name="L_EXTENDEDPRICE" ColumnName="L_EXTENDEDPRICE" />
+                <ScalarProperty Name="L_DISCOUNT" ColumnName="L_DISCOUNT" />
+                <ScalarProperty Name="L_TAX" ColumnName="L_TAX" />
+                <ScalarProperty Name="L_RETURNFLAG" ColumnName="L_RETURNFLAG" />
+                <ScalarProperty Name="L_LINESTATUS" ColumnName="L_LINESTATUS" />
+                <ScalarProperty Name="L_SHIPDATE" ColumnName="L_SHIPDATE" />
+                <ScalarProperty Name="L_COMMITDATE" ColumnName="L_COMMITDATE" />
+                <ScalarProperty Name="L_RECEIPTDATE" ColumnName="L_RECEIPTDATE" />
+                <ScalarProperty Name="L_SHIPINSTRUCT" ColumnName="L_SHIPINSTRUCT" />
+                <ScalarProperty Name="L_SHIPMODE" ColumnName="L_SHIPMODE" />
+                <ScalarProperty Name="L_COMMENT" ColumnName="L_COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{408724D9-4895-4BB8-8D4B-4F8B8290248F}</ProjectGuid>
+    <ProjectGuid>{081F699D-6174-4A9E-8C8A-826EDF759E4A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IndexManager</RootNamespace>
-    <AssemblyName>IndexManager</AssemblyName>
+    <RootNamespace>TPCH</RootNamespace>
+    <AssemblyName>TPCH</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,16 +34,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,21 +57,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201711290118596_IndexManagerModel.cs" />
-    <Compile Include="Migrations\201711290118596_IndexManagerModel.Designer.cs">
-      <DependentUpon>201711290118596_IndexManagerModel.cs</DependentUpon>
+    <Compile Include="CUSTOMER.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Case.cs" />
-    <Compile Include="Model\Column.cs" />
-    <Compile Include="Model\Context\IndexManagerContext.cs" />
-    <Compile Include="Model\Index.cs" />
-    <Compile Include="Model\Table.cs" />
+    <Compile Include="LINEITEM.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NATION.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDER.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PART.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PARTSUPP.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201711290118596_IndexManagerModel.resx">
-      <DependentUpon>201711290118596_IndexManagerModel.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="REGION.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUPPLIER.cs">
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPCHModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPCHModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPCHModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPCHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPCHModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPCHModel.edmx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,9 +117,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="TPCHModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TPCHModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TPCHModel.edmx.diagram">
+      <DependentUpon>TPCHModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TPCHModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPCHModel.edmx</DependentUpon>
+      <LastGenOutput>TPCHModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TPCHModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPCHModel.edmx</DependentUpon>
+      <LastGenOutput>TPCHModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
