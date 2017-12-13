@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Services\IndexService.cs" />
     <Compile Include="Migrations\201712130123210_InitialModel.cs" />
     <Compile Include="Migrations\201712130123210_InitialModel.Designer.cs">
       <DependentUpon>201712130123210_InitialModel.cs</DependentUpon>
