@@ -55,9 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201711290118596_IndexManagerModel.cs" />
-    <Compile Include="Migrations\201711290118596_IndexManagerModel.Designer.cs">
-      <DependentUpon>201711290118596_IndexManagerModel.cs</DependentUpon>
+    <Compile Include="Migrations\201712130123210_InitialModel.cs" />
+    <Compile Include="Migrations\201712130123210_InitialModel.Designer.cs">
+      <DependentUpon>201712130123210_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Case.cs" />
@@ -67,8 +67,8 @@
     <Compile Include="Model\Table.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201711290118596_IndexManagerModel.resx">
-      <DependentUpon>201711290118596_IndexManagerModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712130123210_InitialModel.resx">
+      <DependentUpon>201712130123210_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

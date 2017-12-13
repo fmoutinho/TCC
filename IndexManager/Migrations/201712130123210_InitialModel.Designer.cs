@@ -7,13 +7,13 @@ namespace IndexManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class IndexManagerModel : IMigrationMetadata
+    public sealed partial class InitialModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(IndexManagerModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711290118596_IndexManagerModel"; }
+            get { return "201712130123210_InitialModel"; }
         }
         
         string IMigrationMetadata.Source
