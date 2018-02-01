@@ -1,7 +1,7 @@
-create database TCC
+create database TPCH
 GO
 
-use TCC 
+use TPCH 
 
 CREATE TABLE [dbo].[CUSTOMER](
 	[C_CUSTKEY] [int] NOT NULL,
